@@ -20,6 +20,7 @@ app.use(express.static("public"));
 // importing the DB file
 
 const database = require("./public/data/database.js");
+const myPosts = require("./public/data/database.js");
 
 // Response at http://localhost:3000
 app.get("/", (req, res) => {
@@ -28,8 +29,12 @@ app.get("/", (req, res) => {
 
 // Response
 app.get("/bacheca", (req, res) => {
-    res.json(database);
+    res.json(myPosts);
+    // res.json(myPosts.length);
 })
+
+
+
 // Error message when page not found
 
 app.all("*", (req, res) => {

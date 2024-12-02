@@ -1,8 +1,6 @@
 // Database with the array of objext required; later exported
 
-const { title } = require("process");
-
-const myPost = [
+const myPosts = [
     {
         title: "Ciambellone",
         content: "Facile e veloce da preparare",
@@ -33,6 +31,6 @@ const myPost = [
         img: "../images/torta_paesana.jpeg",
         tags: "dessert, tradizione, cioccolato"
     }
-]
+];
 
-module.exports = myPost;
+module.exports = myPosts;
