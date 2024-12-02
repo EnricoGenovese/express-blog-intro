@@ -19,9 +19,8 @@ app.use(express.static("public"));
 
 // importing the DB file
 
-const database = require("./public/data/database.js");
 const myPosts = require("./public/data/database.js");
-
+const counter = require("./public/data/database.js");
 // Response at http://localhost:3000
 app.get("/", (req, res) => {
     res.send("<h1>Server del mio blog</h1>");
@@ -30,10 +29,26 @@ app.get("/", (req, res) => {
 // Response
 app.get("/bacheca", (req, res) => {
     res.json(myPosts);
-    // res.json(myPosts.length);
+    res.json(counter)
 })
 
-
+// app.get("/:tags", (req, res) => {
+//     const tags = req.params.tags;
+//     // console.log(tags);
+//     let posts = [...myPosts];
+//     //
+//     if (tags) {
+//         posts = myPosts.find((post) => {
+//             return post.tags.toLowerCase() === tags.toLowerCase();
+//         });
+//         if (!tags) {
+//             posts = {
+//                 error: "Tag search has produced 0 results"
+//             }
+//         }
+//     }
+//     res.json(posts);
+// })
 
 // Error message when page not found
 
@@ -47,4 +62,3 @@ app.listen(PORT, () => {
 })
 
 
-// 

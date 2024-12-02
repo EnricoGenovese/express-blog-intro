@@ -30,7 +30,13 @@ const myPosts = [
         content: "Ricetta tradizionale della nonna",
         img: "../images/torta_paesana.jpeg",
         tags: "dessert, tradizione, cioccolato"
-    }
+    },
 ];
 
-module.exports = myPosts;
+const counter = { posts: `${myPosts.length}` }
+console.log(counter);
+
+module.exports = {
+    myPosts,
+    counter,
+}
