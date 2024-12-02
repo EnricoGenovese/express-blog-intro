@@ -9,4 +9,26 @@ Bonus:
 filtrare i dati sulla base di parametri in query string
 */
 
+// Express variables
+const express = require("express");     //--> const to import express
+const app = express();                  // --> to call express methods
+const PORT = 3000;                      // --> localhost:PORT
 
+// Response at http://localhost:3000
+app.get("/", (req, res) => {
+    res.send("<h1>Server del mio blog</h1>");
+})
+
+
+
+
+// Error message when page not found
+
+app.all("*", (req, res) => {
+    res.status(404).send("<h1>Error 404 - Not found</h1>")
+})
+
+// Listener to the local host port
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+})
