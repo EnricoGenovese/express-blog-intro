@@ -14,14 +14,22 @@ const express = require("express");     //--> const to import express
 const app = express();                  // --> to call express methods
 const PORT = 3000;                      // --> localhost:PORT
 
+// Static files folder;
+app.use(express.static("public"));
+
+// importing the DB file
+
+const database = require("./public/data/database.js");
+
 // Response at http://localhost:3000
 app.get("/", (req, res) => {
     res.send("<h1>Server del mio blog</h1>");
 })
 
-
-
-
+// Response
+app.get("/bacheca", (req, res) => {
+    res.json(database);
+})
 // Error message when page not found
 
 app.all("*", (req, res) => {
@@ -32,3 +40,6 @@ app.all("*", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 })
+
+
+// 
